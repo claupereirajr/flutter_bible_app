@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter_bible_app/ui/pages/book_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/books_bloc.dart';
@@ -7,7 +8,6 @@ import '../bloc/books_state.dart';
 import 'package:flutter_bible_app/domain/usecases/get_books_usecase.dart';
 import 'package:flutter_bible_app/data/repositories/book_repository_impl.dart';
 import 'package:flutter_bible_app/data/remote/book_remote.dart';
-import 'package:dio/dio.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

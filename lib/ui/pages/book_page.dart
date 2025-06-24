@@ -7,6 +7,7 @@ import 'package:flutter_bible_app/domain/usecases/get_chapters_usecase.dart';
 import 'package:flutter_bible_app/ui/bloc/chapters_bloc.dart';
 import 'package:flutter_bible_app/ui/bloc/chapters_event.dart';
 import 'package:flutter_bible_app/ui/bloc/chapters_state.dart';
+import 'package:flutter_bible_app/ui/pages/chapter_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BookPage extends StatelessWidget {
@@ -40,12 +41,19 @@ class BookPage extends StatelessWidget {
                   child: ListView.builder(
                     itemCount: state.chapters.length,
                     itemBuilder: (context, index) {
+                      final chapter = state.chapters[index];
                       return Card(
                         child: ListTile(
                           trailing: Icon(Icons.arrow_right),
-                          title: Text(
-                            '${state.chapters[index].book} - ${state.chapters[index].chapter}',
-                          ),
+                          title: Text('${chapter.book} - ${chapter.chapter}'),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ChapterPage(verses: []),
+                              ),
+                            );
+                          },
                         ),
                       );
                     },
